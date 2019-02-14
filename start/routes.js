@@ -26,6 +26,8 @@ Route.get("api/test", () => "test");
 
 Route.get("api/user", "UserController.userInfo").middleware("auth");
 
+Route.post("api/post", "PostController.store").middleware("auth");
+
 Route.any("*", ({ response }) =>
   response.download(Helpers._appRoot + "/public/dist/index.html")
 );
